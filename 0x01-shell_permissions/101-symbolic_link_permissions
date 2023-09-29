@@ -1,0 +1,2 @@
+#!/bin/bash
+ln -s hello _hello | chown vincent:staff _hello
