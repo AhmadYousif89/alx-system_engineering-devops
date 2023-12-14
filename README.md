@@ -41,11 +41,12 @@ git clone https://github.com/AhmadYousif89/alx-system_engineering-devops
 
 ```
 cd alx-system_engineering-devops/shell_basics
-
 ```
 
 - Explore the files and follow the README file found in each section for hands-on learning.
 
 ### Contributing
 
-- If you find any issues, have suggestions, or would like to contribute to this repository, please feel free to open an issue or submit a pull request. Your contributions are highly valued!
+- If you have suggestions, or would like to contribute to this repository, please feel free to open submit a pull request.
+
+#### Thank You.
