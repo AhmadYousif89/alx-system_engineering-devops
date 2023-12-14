@@ -2,7 +2,7 @@
 
 This section focuses on shell scripts related to file and directory permissions in Unix-like systems.
 
-## Table of content:
+## Table of contents:
 
 **1. [Mandatory Scripts](#Mandatory-Scripts)**
 
