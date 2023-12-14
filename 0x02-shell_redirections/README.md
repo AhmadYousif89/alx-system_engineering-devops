@@ -52,7 +52,7 @@ cat /etc/passwd /etc/hosts
 
 #### [4-lastlines](4-lastlines)
 
-- This script print the last 10 lines of the /etc/passwd file using the **`cat | tail`** command with the arg **`-n`**.
+- This script print the last 10 lines of the /etc/passwd file using the **`cat | tail`** command with the flag **`-n`**.
 
 ```bash
 #!/bin/bash
@@ -70,7 +70,7 @@ cat /etc/passwd | head
 
 #### [6-third_line](6-third_line)
 
-- This script output the third line from the file named "iacta. using the **`cat | head | tail`** commands with the arg **`-n`**.
+- This script output the third line from the file named "iacta. using the **`cat | head | tail`** commands with the flag **`-n`**.
 
 ```bash
 #!/bin/bash
@@ -124,7 +124,7 @@ find . -mindepth 1 -type d -print | wc -l
 
 #### [12-newest_files](12-newest_files)
 
-- This script list the names of the newest files in the current directory. using the **`ls | head`** command and the **`-cflag `**.
+- This script list the names of the newest files in the current directory. using the **`ls | head`** command and the flag **`-c`**.
 
 ```bash
 #!/bin/bash
@@ -133,7 +133,7 @@ ls -c | head
 
 #### [13-unique](13-unique)
 
-- This script sort and outputs unique lines from standard input using the **`sort | uniq`** commands and the **`-uflag `**.
+- This script sort and outputs unique lines from standard input using the **`sort | uniq`** commands and the flag **`-u`**.
 
 ```bash
 #!/bin/bash
@@ -169,7 +169,7 @@ grep -A 3 root /etc/passwd
 
 #### [17-hidethisword](17-hidethisword)
 
-- This script exclude lines containing the word "bin" from the /etc/passwd file using the **`grep`** command with the **`-vflag `**.
+- This script exclude lines containing the word "bin" from the /etc/passwd file using the **`grep`** command with the flag **`-v`**.
 
 ```bash
 #!/bin/bash
@@ -196,7 +196,7 @@ tr [A,c] [Z,e]
 
 #### [20-hiago](20-hiago)
 
-- This script remove occurrences of the characters 'C' and 'c' from the input using the **`tr`** command with the **`-dflag `**.
+- This script remove occurrences of the characters 'C' and 'c' from the input using the **`tr`** command with the flag **`-d`**.
 
 ```bash
 #!/bin/bash
