@@ -148,7 +148,7 @@ sudo chgrp school hello
 
 <hr>
 
-#### [### [100-change_owner_and_group](#100-change_owner_and_group)](### [100-change_owner_and_group](#100-change_owner_and_group))
+#### [100-change_owner_and_group](#100-change_owner_and_group)
 
 - This script changes the owner to "vincent" and the group to "staff" for all files in the current directory using the **`sudo chown`** command.
 
