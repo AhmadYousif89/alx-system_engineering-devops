@@ -79,7 +79,7 @@ cat iacta | head -n 3 | tail -n 1
 
 #### [7-file](7-file)
 
-- This script create a file named **`"*\"'"Best School"\'"\*$\?\*\*\*\*\*:)"`** with the content "Best School. using the **`echo`** command and the STDOUT redirect **`>`** flag.
+- This script create a file named **`"*\"'"Best School"\'"\*$\?\*\*\*\*\*:)"`** with the content "Best School" using the **`echo`** command and the STDOUT redirect flag **`>`**.
 
 ```bash
 #!/bin/bash
@@ -88,7 +88,7 @@ echo "Best School" > \\\*\\\\"'\"Best School\"\\'"\\\\\*\$\\\?\\\*\\\*\\\*\\\*\\
 
 #### [8-cwd_state](8-cwd_state)
 
-- This script list the detailed contents of the current directory and saves it to a file named "ls_cwd_content" using the **`ls`** command with the args **`-la`** and the STDOUT redirect **`>`** flag.
+- This script list the detailed contents of the current directory and saves it to a file named "ls_cwd_content" using the **`ls`** command with the args **`-la`** and the STDOUT redirect flag **`>`**.
 
 ```bash
 #!/bin/bash
@@ -97,7 +97,7 @@ ls -la > ls_cwd_content
 
 #### [9-duplicate_last_line](9-duplicate_last_line)
 
-- This script append the last line of the "iacta" file to the end of the same file using the **`tail >>`** commands and with the args **`-n 1`** and the STDOUT redirect **`>>`** flag.
+- This script append the last line of the "iacta" file to the end of the same file using the **`tail >>`** commands and with the args **`-n 1`** and the STDOUT redirect flag **`>>`**.
 
 ```bash
 #!/bin/bash
@@ -124,7 +124,7 @@ find . -mindepth 1 -type d -print | wc -l
 
 #### [12-newest_files](12-newest_files)
 
-- This script list the names of the newest files in the current directory. using the **`ls | head`** command and the **`-c`** flag.
+- This script list the names of the newest files in the current directory. using the **`ls | head`** command and the **`-cflag `**.
 
 ```bash
 #!/bin/bash
@@ -133,7 +133,7 @@ ls -c | head
 
 #### [13-unique](13-unique)
 
-- This script sort and outputs unique lines from standard input using the **`sort | uniq`** commands and the **`-u`** flag.
+- This script sort and outputs unique lines from standard input using the **`sort | uniq`** commands and the **`-uflag `**.
 
 ```bash
 #!/bin/bash
@@ -169,7 +169,7 @@ grep -A 3 root /etc/passwd
 
 #### [17-hidethisword](17-hidethisword)
 
-- This script exclude lines containing the word "bin" from the /etc/passwd file using the **`grep`** command with the **`-v`** flag.
+- This script exclude lines containing the word "bin" from the /etc/passwd file using the **`grep`** command with the **`-vflag `**.
 
 ```bash
 #!/bin/bash
@@ -196,7 +196,7 @@ tr [A,c] [Z,e]
 
 #### [20-hiago](20-hiago)
 
-- This script remove occurrences of the characters 'C' and 'c' from the input using the **`tr`** command with the **`-d`** flag.
+- This script remove occurrences of the characters 'C' and 'c' from the input using the **`tr`** command with the **`-dflag `**.
 
 ```bash
 #!/bin/bash
