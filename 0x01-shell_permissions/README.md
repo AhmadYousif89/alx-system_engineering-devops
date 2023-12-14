@@ -125,7 +125,7 @@ sudo chmod +X *
 
 #### [12-directory_permissions](12-directory_permissions)
 
-- This script creates a directory named "my_dir" with specific permissions (751) using the mkdir **`--mode`** command.
+- This script creates a directory named "my_dir" with specific permissions (751) using the **`mkdir --mode`** command.
 
 ```bash
 #!/bin/bash
@@ -177,7 +177,7 @@ suo chown --from=guillaume betty hello
 
 #### [103-Star_Wars](103-Star_Wars)
 
-- This script plays an ASCII Star Wars episode in the terminal using the telnet command.
+- This script plays an ASCII Star Wars episode in the terminal using the **`telnet`** command.
 
 ```bash
 #!/bin/bash
