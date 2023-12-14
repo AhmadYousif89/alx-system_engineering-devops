@@ -1,6 +1,6 @@
 # Shell Basics
 
-This section covers fundamental shell scripts that introduce you to basic commands and operations in a Unix-like environment.
+This section covers fundamental shell scripts that introduce you to basic commands and operations in a Unix-like systems.
 
 ## Table of contents:
 
