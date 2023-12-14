@@ -1,6 +1,6 @@
 # Shell Redirections
 
-This section provides a collection of basic and advanced shell scripts for performing various file and text manipulations using redirections in an Ubuntu Linux system.
+This section provides a collection of basic and advanced shell scripts for performing various file and text manipulations using redirections in a Unix-like systems.
 
 ## Table of contents:
 
