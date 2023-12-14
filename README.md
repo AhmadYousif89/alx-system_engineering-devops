@@ -40,10 +40,11 @@ git clone https://github.com/AhmadYousif89/alx-system_engineering-devops
 - Navigate to the desired section's folder.
 
 ```
-$ cd alx-system_engineering-devops/shell_basics
+cd alx-system_engineering-devops/shell_basics
 
-Explore the files and follow the README file found in each section for hands-on learning.
 ```
+
+- Explore the files and follow the README file found in each section for hands-on learning.
 
 ### Contributing
 
