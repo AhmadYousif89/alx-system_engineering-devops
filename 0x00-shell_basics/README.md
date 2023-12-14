@@ -4,13 +4,13 @@ This section covers fundamental shell scripts that introduce you to basic comman
 
 ## Table of content:
 
-**1. [Mandatory Files](#Mandatory-Files)**
+**1. [Mandatory Scripts](#Mandatory-Scripts)**
 
-**2. [Advanced Files](#Advanced-Files)**
+**2. [Advanced Scripts](#Advanced-Scripts)**
 <br>
 <br>
 
-### Mandatory Files:
+### Mandatory Scripts:
 
 <hr>
 
@@ -152,7 +152,7 @@ cp -u *.html ..
 <br>
 <br>
 
-### Advanced Shell Scripts
+### Advanced Scripts
 
 <hr>
 
