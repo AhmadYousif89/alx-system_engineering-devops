@@ -2,7 +2,7 @@
 
 This section covers fundamental shell scripts that introduce you to basic commands and operations in a Unix-like environment.
 
-## Table of content:
+## Table of contents:
 
 **1. [Mandatory Scripts](#Mandatory-Scripts)**
 
