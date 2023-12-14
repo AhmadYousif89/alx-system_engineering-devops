@@ -13,19 +13,19 @@ Welcome to the **Alx System Engineering Devops** repository! This repository is 
 
 ### Shell Basics
 
-- The "shell_basics" folder contains introductory materials and exercises related to basic shell scripting. Topics covered include command-line navigation, file manipulation, and basic scripting.
+- The **`shell_basics`** folder contains introductory materials and exercises related to basic shell scripting. Topics covered include command-line navigation, file manipulation, and basic scripting.
 
 ### Shell Permissions
 
-- In the "shell_permissions" section, we delve into the concept of permissions in Unix-like systems. Learn how to manage file and directory permissions effectively to ensure the security and integrity of your system.
+- In the **`shell_permissions`** folder, we delve into the concept of permissions in Unix-like systems. Learn how to manage file and directory permissions effectively to ensure the security and integrity of your system.
 
 ### Shell Redirections
 
-- The "shell_redirections" folder explores the powerful concept of shell redirections. Discover how to manipulate input and output streams, redirect data between processes, and enhance the flexibility of your shell scripts.
+- The **`shell_redirections`** folder explores the powerful concept of shell redirections. Discover how to manipulate input and output streams, redirect data between processes, and enhance the flexibility of your shell scripts.
 
 ### Shell Variables and Expansions
 
-- In the "shell_variables_expansions" section, we explore the use of variables and expansions in shell scripting. Understand how to store and manipulate data using variables, as well as how to perform various expansions for efficient script execution.
+- In the **`shell_variables_expansions`** folder, we explore the use of variables and expansions in shell scripting. Understand how to store and manipulate data using variables, as well as how to perform various expansions for efficient script execution.
 
 ## Getting Started
 
@@ -47,6 +47,6 @@ cd alx-system_engineering-devops/shell_basics
 
 ### Contributing
 
-- If you have suggestions, or would like to contribute to this repository, please feel free to open submit a pull request.
+- If you have suggestions, or would like to contribute to this repository, please feel free to open or submit a pull request.
 
 #### Thank You.
