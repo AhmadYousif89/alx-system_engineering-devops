@@ -2,7 +2,17 @@
 
 This section covers fundamental shell scripts that introduce you to basic commands and operations in a Unix-like environment.
 
+## Table of content:
+
+**1. [Mandatory Files](#Mandatory-Files)**
+
+**2. [Advanced Files](#Advanced-Files)**
+<br>
+<br>
+
 ### Mandatory Files:
+
+<hr>
 
 #### [0-current_working_directory](0-current_working_directory)
 
@@ -139,7 +149,12 @@ ln -s /bin/ls __ls__
 cp -u *.html ..
 ```
 
+<br>
+<br>
+
 ### Advanced Shell Scripts
+
+<hr>
 
 #### [100-lets_move](100-lets_move)
 
