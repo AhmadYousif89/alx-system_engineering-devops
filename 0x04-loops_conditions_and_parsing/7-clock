@@ -5,16 +5,12 @@
 
 h=0
 
-while [ $h -lt 12 ]; do
+while [ $h -lt 13 ]; do
 	echo "Hour: $h"
-	m=1
-	while [ $m -le 59 ]; do
+	m=1	
+	while [ $m -le 59 ] && [ $h -ne 12 ]; do
 		echo "$m"
-		m=$((m+1))
+		((m++))
 	done
-	
-	h=$((h+1))
-	if [ $h == 12 ]; then
-		echo "Hour: $h"
-	fi
+	((h++))
 done
