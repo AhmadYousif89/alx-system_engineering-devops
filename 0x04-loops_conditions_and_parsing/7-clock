@@ -8,7 +8,7 @@ h=0
 while [ $h -lt 13 ]; do
 	echo "Hour: $h"
 	m=1	
-	while [ $m -le 59 ] && [ $h -ne 12 ]; do
+	while [ $m -le 59 ]; do
 		echo "$m"
 		((m++))
 	done
