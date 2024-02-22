@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Script that prints numbers and loops 20 times using a While loop and: 
+# Script that prints numbers and loops 20 times using match casing in a While loop and: 
 #+ prints '4' and then "bad luck from China" for the 4th loop iteration.
 #+ prints '9' and then "bad luck from Japan" for the 9th loop iteration.
 #+ prints '17' and then "bad luck from Italy" for the 17th loop iteration.
@@ -8,14 +8,19 @@ i=1
 string="bad luck from"
 
 while [ $i -le 20 ]; do
-	if [ $i -eq 4 ]; then
+	case  $i in
+		4)
 		echo "4" && echo "$string China"
-	elif [ $i -eq 9 ]; then
+		;;
+		9)
 		echo "9" && echo "$string Japan"
-	elif [ $i -eq 17 ]; then
+		;;
+		17)
 		echo "17" && echo "$string Italy"
-	else
+		;;
+		*)
 		echo "$i"
-	fi
+		;;
+	esac
 	i=$((i+1))
 done
