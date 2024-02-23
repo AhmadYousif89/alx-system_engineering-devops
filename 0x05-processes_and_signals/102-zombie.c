@@ -29,18 +29,20 @@ int main(void)
 		child_pid = fork();
 
 		if (child_pid == -1)
-			perror("Fork error"),
-				exit(EXIT_FAILURE);
+		{
+			perror("Fork error");
+			exit(EXIT_FAILURE);
+		}
 
 		if (child_pid == 0)
-			printf("Zombie process created, PID: %d\n", getpid()),
-				exit(EXIT_SUCCESS);
+		{
+			printf("Zombie process created, PID: %d\n", getpid());
+			exit(EXIT_SUCCESS);
+		}
 		else
-			sleep(1);
+			/* This will give us a chance to observe the zombie processes */
+			infinite_while();
 	}
-
-	/* This will give us a chance to observe the zombie processes using tools like ps */
-	infinite_while();
 
 	return (EXIT_SUCCESS);
 }
