@@ -6,18 +6,18 @@
 
 filename="/var/run/myscript.pid"
 
-echo "$$" > $filename
-
-terminate () {
-	rm $filename
-	exit
+terminator() {
+  rm $filename
+  exit
 }
 
-trap 'echo "I hate the kill command"' SIGTERM
+echo "$$" > $filename
+
 trap 'echo "Y U no love me?!"' SIGINT
-trap 'terminate' SIGQUIT
+trap 'echo "I hate the kill command" && terminator' SIGTERM
+trap 'terminator' SIGQUIT 
 
 while true; do
-	echo "To infinity and beyond"
-	sleep 2
+  echo "To infinity and beyond"
+  sleep 2
 done
