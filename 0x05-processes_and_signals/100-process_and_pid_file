@@ -9,7 +9,7 @@ filename="/var/run/myscript.pid"
 echo "$$" > $filename
 
 terminate () {
-	rm $filename; exit
+	rm $filename
 }
 
 trap 'echo "I hate the kill command"' SIGTERM
