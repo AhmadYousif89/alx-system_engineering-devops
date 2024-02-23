@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Script that writes its process ID to a file, handles termination signals,
+#+ and runs an infinite loop echoing a message, demonstrating signal trapping.
+#+ SIGTERM and SIGINT display messages, and SIGQUIT triggers a cleanup function
+#+ that removes the process ID file.
+
+filename="myscript.pid"
+
+echo "$$" > /var/run/$filename
+
+terminate () {
+	rm /var/run/$filename
+}
+
+trap 'echo "I hate the kill command"' SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'terminate' SIGQUIT
+
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
