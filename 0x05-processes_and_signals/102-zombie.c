@@ -31,12 +31,17 @@ int main(void)
 		if (child_pid == -1)
 			exit(EXIT_FAILURE);
 
-		printf("Zombie process created, PID: %d\n", getpid());
+		if (child_pid == 0)
+		{
+			printf("Zombie process created, PID: %d\n", getpid());
+			exit(EXIT_SUCCESS);
+		}
+		else
+			sleep(1);
 	}
 
 	/* This should give us a chance to observe the zombie processes using ps */
-	if (child_pid != 0)
-		infinite_while();
+	infinite_while();
 
 	return (EXIT_SUCCESS);
 }
