@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Script that that manages the (manage_my_process) script.
+#+ When passing the argument start:
+	# Starts manage_my_process
+	# Creates a file containing its PID in /var/run/my_process.pid
+	# Displays manage_my_process started
+#+ When passing the argument stop:
+	# Stops manage_my_process
+	# Deletes the file /var/run/my_process.pid
+	# Displays manage_my_process stopped
+#+ When passing the argument restart
+	# Stops manage_my_process
+	# Deletes the file /var/run/my_process.pid
+	# Starts manage_my_process
+	# Creates a file containing its PID in /var/run/my_process.pid
+	# Displays manage_my_process restarted
+#+ Displays Usage: manage_my_process {start|stop|restart} if any other argument or no argument is passed
+
+process_name="manage_my_process"
+pid_file="/var/run/my_process.pid"
+
+start_process() {
+    ./$process_name &
+    echo $! > $pid_file # Captures the PID of "manage_my_process" script 
+    echo "$process_name started"
+}
+
+stop_process() {
+    if [ -e $pid_file ]; then
+        pid=$(cat $pid_file)
+        kill "$pid"
+        rm $pid_file
+        echo "$process_name stopped"
+    fi
+}
+
+restart_process() {
+    stop_process
+    start_process
+    echo "$process_name restarted"
+}
+
+if [ "${1}" == "start" ]; then
+	start_process
+elif [ "${1}" == "stop" ]; then
+	stop_process
+elif [ "${1}" == "restart" ]; then
+    restart_process
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
