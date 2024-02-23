@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Script that terminate the running "To infinity and beyond" script. 
+
+pid=$(pgrep -f "4-to_infinity_and_beyond")
+kill "$pid"
