@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that terminate the running "7-highlander" script. 
+
+pkill -f "7-highlander"
