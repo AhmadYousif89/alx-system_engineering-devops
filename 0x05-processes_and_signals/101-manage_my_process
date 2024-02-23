@@ -20,7 +20,7 @@ process_name="manage_my_process"
 pid_file="/var/run/my_process.pid"
 
 start_process() {
-    ./$process_name &
+    ./manage_my_process &
     echo $! > $pid_file # Captures the PID of "manage_my_process" script 
     echo "$process_name started"
 }
