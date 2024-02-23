@@ -26,12 +26,10 @@ start_process() {
 }
 
 stop_process() {
-    if [ -e $pid_file ]; then
-        pid=$(cat $pid_file)
-        kill "$pid"
-        rm $pid_file
-        echo "$process_name stopped"
-    fi
+	pid=$(cat $pid_file)
+	kill "$pid"
+	rm $pid_file
+	echo "$process_name stopped"
 }
 
 restart_process() {
