@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
+#include <unistd.h>
 
 /**
  * infinite_while - Creates an infinite loop
@@ -40,9 +40,11 @@ int main(void)
 			exit(EXIT_SUCCESS);
 		}
 		else
-			/* This will give us a chance to observe the zombie processes */
-			infinite_while();
+			sleep(1);
 	}
+
+	/* This should give us a chance to observe the zombie processes using ps */
+	infinite_while();
 
 	return (EXIT_SUCCESS);
 }
