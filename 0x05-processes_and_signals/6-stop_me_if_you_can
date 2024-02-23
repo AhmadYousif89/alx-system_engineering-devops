@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script that terminate the running "To infinity and beyond" script without using kill or killall. 
+
+pkill -f "4-to_infinity_and_beyond"
