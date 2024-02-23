@@ -19,31 +19,21 @@
 process_name="manage_my_process"
 pid_file="/var/run/my_process.pid"
 
-start_process() {
-    ./manage_my_process &
-    echo $! > $pid_file # Captures the PID of "manage_my_process" script 
+if [ "${1}" == "start" ]; then
+	./manage_my_process &
+    echo $! > $pid_file
     echo "$process_name started"
-}
-
-stop_process() {
-	pid=$(cat $pid_file)
-	kill "$pid"
+elif [ "${1}" == "stop" ]; then
+	kill "$(cat $pid_file)"
 	rm $pid_file
 	echo "$process_name stopped"
-}
-
-restart_process() {
-    stop_process
-    start_process
-    echo "$process_name restarted"
-}
-
-if [ "${1}" == "start" ]; then
-	start_process
-elif [ "${1}" == "stop" ]; then
-	stop_process
 elif [ "${1}" == "restart" ]; then
-    restart_process
+	kill "$(cat $pid_file)"
+	rm $pid_file
+	echo "$process_name stopped"
+	./manage_my_process &
+    echo $! > $pid_file 
+    echo "$process_name started"
 else
     echo "Usage: manage_my_process {start|stop|restart}"
 fi
