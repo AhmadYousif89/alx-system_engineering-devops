@@ -10,6 +10,7 @@ echo "$$" > $filename
 
 terminate () {
 	rm $filename
+	exit
 }
 
 trap 'echo "I hate the kill command"' SIGTERM
