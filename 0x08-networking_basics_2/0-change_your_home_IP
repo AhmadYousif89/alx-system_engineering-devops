@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Script that configures an Ubuntu server with the below requirements:
+#+ localhost resolves to 127.0.0.2
+#+ facebook.com resolves to 8.8.8.8.
+
+sed -i -e '/localhost$/s/127.0.0.1/127.0.0.2/' -e '/localhost$/a\8.8.8.8\t\tfacebook.com' /etc/hosts
