@@ -2,7 +2,7 @@
 # Script that pings an IP address passed as an argument.
 
 if  [ -z "$1" ]; then
-    echo "Usage: $0 {IP_ADDRESS}"
+    echo "Usage: ${0#./} {IP_ADDRESS}"
     exit 1
 fi
 
