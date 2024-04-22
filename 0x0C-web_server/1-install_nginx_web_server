@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Install nginx
-sudo apt-get update
+sudo apt-get update -y
 sudo apt-get install nginx -y
 # Nginx listens on port 80 by default
 # Create a temporary HTML file with Hello World!
 echo "<!DOCTYPE html><html><head><title>Hello World!</title></head><body><h1>Hello World!</h1></body></html>" > /var/www/html/index.html
-# Restart nginx without systemctl
+# Start nginx without systemctl
 sudo service nginx start
