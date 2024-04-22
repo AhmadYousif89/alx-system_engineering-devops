@@ -6,7 +6,7 @@
     # The username scp connects with
     # The path to the SSH private key that scp uses
 
-if [ "$#" -lt 4 ]; then
+if [ $# -lt 3 ]; then
     echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
     exit 1
 fi
@@ -16,6 +16,10 @@ file_path="$1"
 server_ip="$2"
 username="$3"
 ssh_key="$4"
-
+ssh_connection="$username@$server_ip:~/"
 # Transfer file using scp
-scp -o StrictHostKeyChecking=no "$file_path" "$ssh_key" "$username@$server_ip:~/" 
+if [ $# -ge 4 ] ;then
+    scp -o StrictHostKeyChecking=no -i "$ssh_key" "$file_path" "$ssh_connection"
+else
+    scp -o StrictHostKeyChecking=no "$file_path" "$ssh_connection"
+fi
