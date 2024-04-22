@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # Install nginx
-sudo apt-get update -y
-sudo apt-get install nginx -y
-# Create a temporary HTML file with Hello World!
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-# Start nginx without systemctl
 sudo service nginx start
