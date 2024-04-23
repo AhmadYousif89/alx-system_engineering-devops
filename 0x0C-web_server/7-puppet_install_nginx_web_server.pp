@@ -2,18 +2,19 @@
 class nginx_configuration {
   # Package installation and update
   package { 'nginx':
-    ensure => 'installed',
+    ensure  => 'installed',
+    require => Exec['update system'],
   }
 
   # Update package repositories
   exec { 'apt-update':
     command => '/usr/bin/apt-get update -y',
-    path    => ['/bin', '/usr/bin'],
+    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
     require => Package['nginx'],
   }
 
   # Give ownership to website files
-  file { '/var/www/html':
+  file { '/var/www':
     ensure  => 'directory',
     owner   => $facts['user'],
     group   => $facts['user'],
@@ -22,7 +23,7 @@ class nginx_configuration {
   }
 
   # Create index page
-  file { '/var/www/html/index.nginx-debian.html':
+  file { '/var/www/html/index.html':
     ensure  => 'file',
     content => '
     <!DOCTYPE html>
@@ -34,16 +35,12 @@ class nginx_configuration {
           <h1 style="text-align: center; margin: 0; font-size: 5rem;">Hello World!</h1>
         </body>
       </html>',
-    owner   => $facts['user'],
-    group   => $facts['user'],
-    mode    => '0644',
   }
 
   # Configure redirection
   file_line { 'configure redirection':
     ensure  => present,
-    line    => 'rewrite ^/redirect_me https://www.youtube.com/watch?v=w_u4iY45A_U permanent;',
-    path    => '/etc/nginx/sites-available/default',
+    command => 'sed -i "24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=w_u4iY45A_U permanent;;" /etc/nginx/sites-available/default',
     require => Package['nginx'],
     notify  => Service['nginx'],
   }
@@ -52,9 +49,6 @@ class nginx_configuration {
   file { '/var/www/html/not_found.html':
     ensure  => 'file',
     content => "Ceci n'est pas une page",
-    owner   => $facts['user'],
-    group   => $facts['user'],
-    mode    => '0644',
   }
 
   file_line { 'configure 404 page':
