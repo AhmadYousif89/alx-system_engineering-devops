@@ -11,7 +11,7 @@ echo "<!DOCTYPE html><html><head><title>My Web Server</title></head><body style=
 # Setting /redirect_me page to redirect to a youtube video
 sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=w_u4iY45A_U permanent;' /etc/nginx/sites-available/default
 # Setting custom not-found page /404
-echo "Ceci n'est pas une page" > /var/www/html/404.html
-sed -i "46i not_found_page 404 /404.html;" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" > /var/www/html/error_404.html
+sudo sed -i '25i\	error_page 404 /error_404.html;' /etc/nginx/sites-available/default
 # Restarting nginx
 sudo service nginx restart
