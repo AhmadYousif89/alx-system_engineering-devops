@@ -1,16 +1,14 @@
 # Define a class for nginx configuration
 class nginx_configuration {
+  # Update package repositories
+  exec { 'apt-update':
+    command => '/usr/bin/apt-get update -y',
+  }
+
   # Package installation and update
   package { 'nginx':
     ensure  => 'installed',
     require => Exec['update system'],
-  }
-
-  # Update package repositories
-  exec { 'apt-update':
-    command => '/usr/bin/apt-get update -y',
-    path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
-    require => Package['nginx'],
   }
 
   # Give ownership to website files
@@ -37,10 +35,10 @@ class nginx_configuration {
       </html>',
   }
 
-  # Configure redirection
+  # Configure /redirect_me page
   file_line { 'configure redirection':
     ensure  => present,
-    command => 'sed -i "24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=w_u4iY45A_U permanent;;" /etc/nginx/sites-available/default',
+    command => 'sed -i "24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=w_u4iY45A_U permanent;" /etc/nginx/sites-available/default',
     require => Package['nginx'],
     notify  => Service['nginx'],
   }
@@ -69,3 +67,15 @@ class nginx_configuration {
 
 # Include the nginx_configuration class
 include nginx_configuration
+
+# restart nginx
+exec { 'restart service':
+  command => 'service nginx restart',
+  path    => '/usr/bin:/usr/sbin:/bin',
+}
+
+# start service nginx
+service { 'nginx':
+  ensure  => running,
+  require => Package['nginx'],
+}
