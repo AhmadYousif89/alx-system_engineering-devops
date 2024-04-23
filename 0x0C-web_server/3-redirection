@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Script that configures nginx server
+
+sudo apt-get update -y
+sudo apt-get install nginx -y
+# Give the user ownership to website files for easy editing
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
+
+echo "<!DOCTYPE html><html><head><title>My Web Server</title></head><body style='font-family: Open Sans;'><h1 style='text-align: center; margin: 0; font-size: 5rem;'>Hello World!</h1></body></html>" > /var/www/html/index.nginx-debian.html
+# Setting /redirect_me page to a youtube video
+sudo sed -i '24i\	rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+
+sudo service nginx start
