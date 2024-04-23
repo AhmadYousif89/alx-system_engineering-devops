@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# installs nginx and configure it to listen on port 80
-# print "Hello World"
+# Install nginx
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
+# Give the user ownership to website files for easy editing
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 sudo service nginx start
