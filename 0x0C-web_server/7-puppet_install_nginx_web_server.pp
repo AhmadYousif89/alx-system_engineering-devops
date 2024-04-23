@@ -18,39 +18,21 @@ exec { 'redirect_me':
   provider => 'shell',
 }
 
+# Configure custom 404 page
+file { '/var/www/html/not_found.html':
+  ensure  => 'file',
+  content => "Ceci n'est pas une page",
+}
+
+file_line { 'configure 404 page':
+  ensure  => present,
+  line    => 'error_page 404 /not_found.html;',
+  path    => '/etc/nginx/sites-available/default',
+  require => Package['nginx'],
+  notify  => Service['nginx'],
+}
+
 service { 'nginx':
   ensure  => running,
   require => Package['nginx'],
 }
-
-# # Configure custom 404 page
-# file { '/var/www/html/not_found.html':
-#   ensure  => 'file',
-#   content => "Ceci n'est pas une page",
-# }
-
-# file_line { 'configure 404 page':
-#   ensure  => present,
-#   line    => 'error_page 404 /not_found.html;',
-#   path    => '/etc/nginx/sites-available/default',
-#   require => Package['nginx'],
-#   notify  => Service['nginx'],
-# }
-# restart nginx
-# exec { 'restart service':
-#   command => 'service nginx restart',
-#   path    => '/usr/bin:/usr/sbin:/bin',
-# }
-
-# # start service nginx
-# service { 'nginx':
-#   ensure  => running,
-#   require => Package['nginx'],
-# }
-
-# Restart nginx service
-# service { 'nginx':
-#   ensure  => 'running',
-#   enable  => true,
-#   require => Package['nginx'],
-# }
