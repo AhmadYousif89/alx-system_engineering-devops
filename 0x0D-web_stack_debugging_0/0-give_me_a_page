@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Start Apache to fix the issue
 
-sudo service apache2 restart
+echo "ServerName localhost" >> /etc/apache2.conf
+sudo service apache2 start
