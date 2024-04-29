@@ -6,12 +6,11 @@ web_01_name="530995-web-01"
 web_01_ip="100.25.166.145"
 web_02_name="530995-web-02"
 web_02_ip="52.91.120.94"
-# Ensure script exits if any command fails
-set -e
+
 # Install required packages
 sudo apt-get install --no-install-recommends software-properties-common -y
 sudo add-apt-repository ppa:vbernat/haproxy-2.8 -y
-sudo apt-get install haproxy=2.8.\* -y
+sudo apt-get install haproxy -y
 # Backup HAProxy configuration file
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 # Append server configuration to HAProxy configuration file
@@ -29,4 +28,4 @@ backend web_servers
 
 EOF
 # Restart the HAproxy service
-sudo systemctl restart haproxy
+sudo service haproxy restart
