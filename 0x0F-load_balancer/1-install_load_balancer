@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # script that installs and configure a HAproxy on a Load-Balancer server.
 
-# shellcheck source=SERVER_COFIG_FILE
-SERVER_COFIG_FILE="/home/ubuntu/servers.conf"
-source $SERVER_COFIG_FILE
 PORT=80
+web_01_name="530995-web-01"
+web_01_ip="100.25.166.145"
+web_02_name="530995-web-02"
+web_02_ip="52.91.120.94"
 # Ensure script exits if any command fails
 set -e
 # Install required packages
