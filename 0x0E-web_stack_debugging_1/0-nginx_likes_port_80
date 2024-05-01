@@ -7,15 +7,9 @@ if ! command -v nginx &> /dev/null; then
     sudo apt install -y nginx
 fi
 
+sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default 
+
 # Start Nginx if not running
 if ! sudo service nginx status &> /dev/null; then
     sudo service nginx restart
-fi
-
-# Allow incoming connections on port 80
-sudo ufw allow 80
-
-# Check if firewall is active
-if ! sudo ufw status | grep -q "active"; then
-    sudo ufw --force enable
 fi
