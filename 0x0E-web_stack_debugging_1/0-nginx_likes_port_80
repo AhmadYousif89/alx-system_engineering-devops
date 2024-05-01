@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Install Nginx if not already installed
+if ! command -v nginx &> /dev/null; then
+    sudo apt update
+    sudo apt install -y nginx
+fi
+
+# Start Nginx if not running
+if ! systemctl is-active --quiet nginx; then
+    sudo systemctl start nginx
+fi
+
+# Enable Nginx to start on boot
+sudo systemctl enable nginx
+
+# Allow incoming connections on port 80
+sudo ufw allow 80
+
+# Check if firewall is active
+if ! sudo ufw status | grep -q "active"; then
+    sudo ufw --force enable
+fi
