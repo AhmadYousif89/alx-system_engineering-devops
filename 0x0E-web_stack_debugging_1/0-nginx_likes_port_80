@@ -8,12 +8,9 @@ if ! command -v nginx &> /dev/null; then
 fi
 
 # Start Nginx if not running
-if ! systemctl is-active --quiet nginx; then
-    sudo systemctl start nginx
+if ! sudo service nginx status &> /dev/null; then
+    sudo service nginx restart
 fi
-
-# Enable Nginx to start on boot
-sudo systemctl enable nginx
 
 # Allow incoming connections on port 80
 sudo ufw allow 80
