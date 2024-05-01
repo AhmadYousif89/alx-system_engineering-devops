@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Script that configures a server with Nginx web server
 
 # Install Nginx if not already installed
 if ! command -v nginx &> /dev/null; then
