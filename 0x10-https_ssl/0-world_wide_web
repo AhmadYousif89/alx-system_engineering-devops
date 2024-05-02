@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 # Display DNS information for a given domain and its subdomains
 
-# Check if the number of arguments is correct
-if [ $# -lt 1 ]; then
-    echo "Usage: <domain> [subdomain]"
-    exit 1
-fi
-
 domain=$1
 subdomain=$2
 
