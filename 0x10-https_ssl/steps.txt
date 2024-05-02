@@ -1,0 +1,17 @@
+# The required steps to install the SSL certificate on the HAproxy (lb-01) server:
+-----------------------------------------------------------------------------------------------
+DOMAIN='www.<domain.name.here>'
+sudo apt update
+sudo apt remove certbot
+sudo apt install certbot -y
+sudo service haproxy stop
+sudo certbot certonly --standalone -d $DOMAIN
+sudo mkdir -p /etc/haproxy/certs
+sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+sudo vim /etc/haproxy/haproxy.cfg
+add the following lines under the frontend section:
+-    bind *:443      ssl crt /etc/haproxy/certs/www.jo-tech.tech.pem
+-    http-request redirect scheme https code 301 unless { ssl_fc }
+-    http-request set-header X-Forwarded-Proto https
+
+

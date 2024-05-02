@@ -24,7 +24,7 @@ defaults
 frontend web_http
         bind *:80
         mode http
-        http-request redirect scheme https unless { ssl_fc }
+        http-request redirect scheme https code 301 unless { ssl_fc }
         http-request set-header X-Forwarded-Proto https
         default_backend be_server
 
