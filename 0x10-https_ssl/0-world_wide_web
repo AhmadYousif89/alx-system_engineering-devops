@@ -13,10 +13,8 @@ get_dns_info() {
     fi
     # Generate the dns audit info
     for sub in "${subdomains[@]}"; do
-        server_ip=$(dig +short "$sub.$domain")
-        record_type=$(dig "$sub.$domain" | awk '/ANSWER SECTION:/{getline; print $4}')
-        dns_info="The subdomain $sub is a $record_type record and points to $server_ip"
-        echo "$dns_info"
+        dig +noall +answer "$sub.$domain" |
+        awk -v _sub="$sub" '{print "The subdomain " _sub " is a " $4 " record and points to " $5}'
     done
 }
 
