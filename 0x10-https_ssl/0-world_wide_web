@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Display DNS information for a given domain and its subdomains
+
+# Check if the number of arguments is correct
+if [ $# -lt 1 ]; then
+    echo "Usage: <domain> [subdomain]"
+    exit 1
+fi
+
+domain=$1
+subdomain=$2
+
+get_dns_info() {
+    # List of all available subdomains
+    subdomains=("www" "lb-01" "web-01" "web-02")
+    # Extract the subdomain from the list if provided
+    if [ "$subdomain" ]; then
+        subdomains=("$subdomain")
+    fi
+    # Generate the dns audit info
+    for sub in "${subdomains[@]}"; do
+        server_ip=$(dig +short "$sub.$domain")
+        record_type=$(dig "$sub.$domain" | awk '/ANSWER SECTION:/{getline; print $4}')
+        dns_info="The subdomain $sub is a $record_type record and points to $server_ip"
+        echo "$dns_info"
+    done
+}
+
+get_dns_info "$domain" "$subdomain"
