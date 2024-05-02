@@ -7,15 +7,15 @@ subdomain=$2
 get_dns_info() {
     # List of all available subdomains
     subdomains=("www" "lb-01" "web-01" "web-02")
-    # Extract the subdomain from the list if provided
-    if [ "$subdomain" ]; then
-        subdomains=("$subdomain")
+    if [ $# -eq 2 ] && [ "$subdomain" ]; then
+        dig +noall +answer "$subdomain.$domain" |
+        awk -v _sub="$subdomain" '{print "The subdomain " _sub " is a " $4 " record and points to " $5}'
+        elif  [ $# -eq 2 ]; then
+        for sub in "${subdomains[@]}"; do
+            dig +noall +answer "$sub.$domain" |
+            awk -v _sub="$sub" '{print "The subdomain " _sub " is a " $4 " record and points to " $5}'
+        done
     fi
-    # Generate the dns audit info
-    for sub in "${subdomains[@]}"; do
-        dig +noall +answer "$sub.$domain" |
-        awk -v _sub="$sub" '{print "The subdomain " _sub " is a " $4 " record and points to " $5}'
-    done
 }
 
 get_dns_info "$domain" "$subdomain"
