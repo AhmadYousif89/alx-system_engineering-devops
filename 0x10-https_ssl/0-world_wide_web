@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 # Display DNS information for a given domain and its subdomains
 
-domain=$1
-subdomain=$2
+# List of all available subdomains
+subdomains=("www" "lb-01" "web-01" "web-02")
 
 get_dns_info() {
-    # List of all available subdomains
-    subdomains=("www" "lb-01" "web-01" "web-02")
-    if [ $# -eq 2 ] && [ "$subdomain" ]; then
-        dig +noall +answer "$subdomain.$domain" |
-        awk -v _sub="$subdomain" '{print "The subdomain " _sub " is a " $4 " record and points to " $5}'
-        elif  [ $# -eq 2 ]; then
-        for sub in "${subdomains[@]}"; do
-            dig +noall +answer "$sub.$domain" |
-            awk -v _sub="$sub" '{print "The subdomain " _sub " is a " $4 " record and points to " $5}'
-        done
-    fi
+    subdomain="$2"
+    result=$(dig +noall +answer "$subdomain.$1")
+    record=$(echo "$result" | awk '{print $4}')
+    ip=$(echo "$result" | awk '{print $5}')
+    echo "The subdomain $subdomain is a $record record and points to $ip"
 }
 
-get_dns_info "$domain" "$subdomain"
+if [ $# -eq 2 ]; then
+    get_dns_info "$1" "$2"
+    elif  [ $# -eq 1 ]; then
+    for sub in "${subdomains[@]}"; do
+        get_dns_info "$1" "$sub"
+    done
+fi
