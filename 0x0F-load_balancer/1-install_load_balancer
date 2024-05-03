@@ -3,25 +3,24 @@
 
 PORT=80
 web_01_name="530995-web-01"
-web_01_ip="100.25.166.145"
+web_01_ip="34.224.62.175"
 web_02_name="530995-web-02"
-web_02_ip="52.91.120.94"
+web_02_ip="54.84.8.54"
 
 # Install required packages
-sudo apt-get install --no-install-recommends software-properties-common -y
-sudo add-apt-repository ppa:vbernat/haproxy-2.8 -y
+sudo apt update
 sudo apt-get install haproxy -y
 # Backup HAProxy configuration file
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.original
 # Append server configuration to HAProxy configuration file
 sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null <<EOF
 
-frontend haproxy_lb
+frontend jo-tech-http
     bind *:$PORT
     mode http
-    default_backend web_servers
+    default_backend jo-tech-backend
 
-backend web_servers
+backend jo-tech-backend
     balance roundrobin
     server  $web_01_name    $web_01_ip:$PORT    check
     server  $web_02_name    $web_02_ip:$PORT    check
