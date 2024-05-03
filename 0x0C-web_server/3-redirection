@@ -9,6 +9,6 @@ sudo chmod -R 755 /var/www
 # Create index page
 echo "<!DOCTYPE html><html><head><title>My Web Server</title></head><body style='font-family: Open Sans;'><h1 style='text-align: center; margin: 0; font-size: 5rem;'>Hello World!</h1></body></html>" > /var/www/html/index.nginx-debian.html
 # Setting /redirect_me page to redirect to a youtube video
-sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=w_u4iY45A_U permanent;' /etc/nginx/sites-available/default
+sudo sed -i '/listen [::]:80 default_server;/a rewrite ^/redirect_me https://www.github.com/AhmadYousif89 permanent;' /etc/nginx/sites-available/default
 # Restarting nginx
 sudo service nginx restart
