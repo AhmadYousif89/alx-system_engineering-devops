@@ -35,10 +35,9 @@ defaults
 
 frontend jo-tech-frontend
     bind *:80
-    mode http
+    bind *:443  ssl crt /etc/haproxy/certs/jo-tech.pem
     http-request redirect scheme https code 301 unless { ssl_fc }
-    http-request set-header X-Forwarded-Proto http
-    bind *:443  ssl crt /etc/haproxy/certs/www.jo-tech.tech.pem
+    http-request set-header X-Forwarded-Proto https
     default_backend jo-tech-backend
 
 backend jo-tech-backend
