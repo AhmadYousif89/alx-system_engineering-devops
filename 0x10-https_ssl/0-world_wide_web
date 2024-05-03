@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Display DNS information for a given domain and its subdomains
+# Takes a subdomain and a domain and returns information about the subdomain
 
 print_info () {
     dig "$1" | grep -A1 'ANSWER SECTION:' | sed -r "s/$1./$2/g" | awk -F" " ' NR==2 { print "The subdomain " $1 " is a " $4 " record and points to " $5 }'
