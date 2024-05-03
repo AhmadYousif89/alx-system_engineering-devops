@@ -33,14 +33,19 @@ defaults
     errorfile 503 /etc/haproxy/errors/503.http
     errorfile 504 /etc/haproxy/errors/504.http
 
-frontend jo-tech-frontend
-    bind *:80
-    bind *:443  ssl crt /etc/haproxy/certs/jo-tech.pem
-    http-request redirect scheme https code 301 unless { ssl_fc }
-    http-request set-header X-Forwarded-Proto https
-    default_backend jo-tech-backend
+frontend jo-frontend
+        bind *:80
+        mode http
+        http-request redirect scheme https code 301 unless { ssl_fc }
+        http-request set-header X_Forwarded-Proto http
+        default_backend jo-backend
 
-backend jo-tech-backend
+frontend jo-frontend-https
+        bind *:443 ssl crt /etc/haproxy/certs/www.jo-tech.tech.pem
+        http-request set-header X-Forwarded-Proto https
+        default_backend jo-backend
+
+backend jo-backend
     balance roundrobin
     server  530995-web-01   100.25.166.145:80   check
     server  530995-web-02   52.91.120.94:80     check
