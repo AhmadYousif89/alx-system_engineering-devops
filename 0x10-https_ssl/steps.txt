@@ -7,7 +7,8 @@ sudo apt install certbot -y
 sudo service haproxy stop
 sudo certbot certonly --standalone -d $DOMAIN
 sudo mkdir -p /etc/haproxy/certs
-sudo -E bash -c 'cat /etc/letsencrypt/live/$DOMAIN/fullchain.pem /etc/letsencrypt/live/$DOMAIN/privkey.pem > /etc/haproxy/certs/$DOMAIN.pem'
+sudo chmod -R go-rwx /etc/haproxy/certs
+sudo -E bash -c 'cat /etc/letsencrypt/live/www.jo-tech.tech/fullchain.pem /etc/letsencrypt/live/www.jo-tech.tech/privkey.pem > /etc/haproxy/certs/www.jo-tech.tech.pem'
 sudo vim /etc/haproxy/haproxy.cfg
 add the following lines under the frontend section:
 -    bind *:443      ssl crt /etc/haproxy/certs/www.jo-tech.tech.pem
