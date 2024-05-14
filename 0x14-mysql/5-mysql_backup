@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# backup and compress my databases
+# Usage: ./backup.sh <password>
 
 DUMP_FILENAME="backup.sql"
 # Compressed archive filename format: day-month-year.tar.gz
