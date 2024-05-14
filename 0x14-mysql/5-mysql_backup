@@ -8,4 +8,3 @@ ARCHIVE_FILENAME="$(date +'%d-%m-%Y').tar.gz"
 # Dump all databases and compress it
 mysqldump -u root -p"$1" --all-databases > "$DUMP_FILENAME"
 tar -czf "$ARCHIVE_FILENAME" "$DUMP_FILENAME"
-rm "$DUMP_FILENAME"
