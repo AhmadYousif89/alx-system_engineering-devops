@@ -6,9 +6,9 @@
 
 This repository contains basic diagrams of web infrastructure designs that can handle a large amount of traffic and be highly available. It will cover the basics of web infrastructure design, the different components that make up a modern web infrastructure, and how to scale it to handle a large amount of traffic.
 
-> _The diagrams were created using [draw.io](https://www.drawio.com/)._
+> _The diagrams were created using <a href="https://www.drawio.com" target="_blank">draw.io</a>_
 
-   <br>
+<br>
 
 ## Table of Contents
 
