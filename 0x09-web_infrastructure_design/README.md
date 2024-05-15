@@ -33,15 +33,25 @@ Effective web infrastructure design is crucial for ensuring optimal performance,
 
 The key components of a web infrastructure include:
 
-1. **Web Servers**: Web servers are responsible for serving web content to end-users. They receive requests from clients (such as web browsers) and respond with the requested content (such as HTML pages, images, or videos).
+1. **Web Servers**:
 
-2. **Application Servers**: Application servers run the code that powers web applications. They process requests from web servers, execute the necessary logic, and generate dynamic content that is sent back to the client.
+   Web servers are responsible for serving web content to end-users. They receive requests from clients (such as web browsers) and respond with the requested content (such as HTML pages, images, or videos).
 
-3. **Databases**: Databases store and manage the data that is used by web applications. They provide a persistent storage layer for storing user data, application data, and other information.
+2. **Application Servers**:
 
-4. **Load Balancers**: Load balancers distribute incoming traffic across multiple web servers to ensure that no single server is overwhelmed. They help improve the performance, availability, and reliability of web applications.
+   Application servers run the code that powers web applications. They process requests from web servers, execute the necessary logic, and generate dynamic content that is sent back to the client.
 
-5. **Networking Devices**: Networking devices, such as routers, switches, and firewalls, help connect the different components of a web infrastructure and ensure that data is transmitted securely and efficiently.
+3. **Databases**:
+
+   Databases store and manage the data that is used by web applications. They provide a persistent storage layer for storing user data, application data, and other information.
+
+4. **Load Balancers**:
+
+   Load balancers distribute incoming traffic across multiple web servers to ensure that no single server is overwhelmed. They help improve the performance, availability, and reliability of web applications.
+
+5. **Networking Devices**:
+
+   Networking devices, such as routers, switches, and firewalls, help connect the different components of a web infrastructure and ensure that data is transmitted securely and efficiently.
 
    <br>
 
@@ -49,9 +59,13 @@ The key components of a web infrastructure include:
 
 Scaling a web infrastructure involves increasing its capacity to handle a larger amount of traffic and users. There are two main approaches to scaling a web infrastructure:
 
-1. **Vertical Scaling**: Vertical scaling involves adding more resources (such as CPU, memory, or storage) to a single server to increase its capacity. This approach is relatively simple but has limitations in terms of scalability and cost-effectiveness.
+1. **Vertical Scaling**:
 
-2. **Horizontal Scaling**: Horizontal scaling involves adding more servers to a web infrastructure to distribute the load across multiple servers. This approach is more scalable and cost-effective but requires additional complexity in terms of load balancing, data synchronization, and fault tolerance.
+   Vertical scaling involves adding more resources (such as CPU, memory, or storage) to a single server to increase its capacity. This approach is relatively simple but has limitations in terms of scalability and cost-effectiveness.
+
+2. **Horizontal Scaling**:
+
+   Horizontal scaling involves adding more servers to a web infrastructure to distribute the load across multiple servers. This approach is more scalable and cost-effective but requires additional complexity in terms of load balancing, data synchronization, and fault tolerance.
 
    <br>
 
