@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 # Script that configures nginx server
 
-sudo apt-get update
-sudo apt-get install nginx -y
+if ! command -v nginx &> /dev/null; then
+    sudo apt-get update
+    sudo apt-get -y install nginx
+fi
 # Give the user ownership to website files for easy editing
 sudo chown -R "$USER":"$USER" /var/www
 sudo chmod -R 755 /var/www
-sudo ufw allow 'Nginx HTTP'
 # Create index page
-echo "Hello World!" > /var/www/html/index.nginx-debian.html
+echo "Hello World!" > /var/www/html/index.html
 # Setting /redirect_me page to redirect to a youtube video
-sudo sed -i '/^server {/a    \\trewrite ^/redirect_me https://www.github.com/AhmadYousif89 permanent;' /etc/nginx/sites-available/default
+sudo sed -i '/^server {/a    \\trewrite ^/redirect_me https://www.github.com/AhmadYousif89 permanent;' /etc/nginx/sites-enabled/default
 # Setting custom not-found page /404
-echo "Ceci n'est pas une page" > /var/www/html/error_404.html
-sudo sed -i '46i	\\terror_page 404 /error_404.html;' /etc/nginx/sites-available/default
+echo "Page Not Found!" > /var/www/html/error_404.html
+sudo sed -i '46i	\\terror_page 404 /error_404.html;' /etc/nginx/sites-enabled/default
 # Restarting nginx
 sudo service nginx restart
