@@ -13,3 +13,7 @@ sudo ufw allow 443/tcp
 sudo ufw allow 80/tcp
 echo "y" | sudo ufw enable
 sudo ufw status verbose
+
+# A rule to allow any incoming connections from the replica server (web-02) IP address to 
+# the primary server (web-01) to its MySQL’s default port number 3306:
+# sudo ufw delete allow from 'web-02_ip_address' to any port 3306
