@@ -14,6 +14,7 @@ symbolic-links  = 0
 server-id       = 2
 log_bin         = /var/log/mysql/mysql-bin.log
 binlog_do_db    = tyrell_corp
-relay-log       = = /var/log/mysql/mysql-relay-bin.log
+relay-log       = /var/log/mysql/mysql-relay-bin.log
+
 # Start replicating data from Master to Slave db
 # CHANGE MASTER TO MASTER_HOST='34.224.62.175', MASTER_USER='replica_user', MASTER_PASSWORD='', MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=154;
