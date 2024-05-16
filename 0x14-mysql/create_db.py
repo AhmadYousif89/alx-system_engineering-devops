@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# To be ran on web-01 server
+# To be ran on both web servers web-01 and web-02
 
 import subprocess
 
