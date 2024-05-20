@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Gather data from an API"""
+import csv
 import requests
-import sys, csv
+import sys
 
 
 def fetch_data(employeeId):
