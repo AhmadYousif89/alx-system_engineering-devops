@@ -1,15 +1,19 @@
 #!/usr/bin/python3
 """Gather data from an API"""
-import requests
 import json
+import requests
 
 
 def fetch_data():
     """
     Fetches data from the JSONPlaceholder API and stores it in a JSON file.
 
-    Returns:
-        list: of dicts containing information about employees and their tasks.
+    Description:
+        Creates a list of dictionaries containing information about
+        the employees' tasks. Each dictionary contains the following keys:
+            - "username": The username of the employee.
+            - "task": The title of the task.
+            - "completed": A boolean indicating whether the task is completed or not.
     """
     all_employees = requests.get(
         f"https://jsonplaceholder.typicode.com/users"
@@ -26,12 +30,12 @@ def fetch_data():
     ).json()
 
     # Group tasks by userId
-    tasks_by_user = {}
+    user_todos = {}
     for task in all_tasks:
         user_id = task["userId"]
-        if user_id not in tasks_by_user:
-            tasks_by_user[user_id] = []
-        tasks_by_user[user_id].append(
+        if user_id not in user_todos:
+            user_todos[user_id] = []
+        user_todos[user_id].append(
             {
                 "username": usernames[user_id],
                 "task": task["title"],
@@ -39,15 +43,8 @@ def fetch_data():
             }
         )
 
-    # Convert the dictionary to a list of dictionaries
-    employees_info = [
-        {user_id: tasks} for user_id, tasks in tasks_by_user.items()
-    ]
-
     with open("todo_all_employees.json", mode='w') as file:
-        json.dump(employees_info, file)
-
-    print(employees_info)
+        json.dump(user_todos, file)
 
 
 if __name__ == "__main__":
