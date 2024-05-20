@@ -13,7 +13,7 @@ def fetch_data():
         the employees' tasks. Each dictionary contains the following keys:
             - "username": The username of the employee.
             - "task": The title of the task.
-            - "completed": A boolean indicating whether the task is completed or not.
+            - "completed": A boolean checks if the task is completed or not.
     """
     all_employees = requests.get(
         f"https://jsonplaceholder.typicode.com/users"
