@@ -23,7 +23,7 @@ GRANT SELECT ON tyrell_corp.nexus6 TO 'holberton_user'@'localhost';
 # Execute MySQL commands using subprocess
 try:
     subprocess.run(
-        ["mysql", "-u", MYSQL_USER, "-p", "-e", MYSQL_COMMANDS],
+        ["sudo", "-u", MYSQL_USER, "mysql", "-e", MYSQL_COMMANDS],
         encoding="utf-8",
         check=True,
     )
