@@ -5,7 +5,7 @@ PORT=80
 web_01_name="530995-web-01"
 web_01_ip="34.224.62.175"
 web_02_name="530995-web-02"
-web_02_ip="54.84.8.54"
+web_02_ip="54.157.181.100"
 
 # Install required packages
 sudo apt update

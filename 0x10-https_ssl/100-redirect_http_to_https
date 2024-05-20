@@ -48,4 +48,4 @@ frontend jo-tech-https
 backend jo-tech-backend
     balance roundrobin
     server 530995-web-01 34.224.62.175:80 check
-    server 530995-web-02 54.84.8.54:80 check
+    server 530995-web-02 54.157.181.100:80 check
