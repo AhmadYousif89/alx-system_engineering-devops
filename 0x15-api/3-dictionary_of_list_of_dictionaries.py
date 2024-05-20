@@ -9,7 +9,7 @@ def fetch_data():
     Fetches data from the JSONPlaceholder API and stores it in a JSON file.
 
     Returns:
-        list: A list of dictionaries containing information about employees and their tasks.
+        list: of dicts containing information about employees and their tasks.
     """
     all_employees = requests.get(
         f"https://jsonplaceholder.typicode.com/users"
@@ -46,6 +46,8 @@ def fetch_data():
 
     with open("todo_all_employees.json", mode='w') as file:
         json.dump(employees_info, file)
+
+    print(employees_info)
 
 
 if __name__ == "__main__":
