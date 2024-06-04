@@ -10,11 +10,8 @@ import requests
 def recurse(subreddit, hot_list=[], after=None):
     """Return a list of titles of all hot articles for a given subreddit."""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    headers = {"User-Agent": "Mozilla/5.0 Chrome/125.0.0.0"}
     params = {"limit": 100, "after": after}
-    response = requests.get(
-        url, headers=headers, params=params, allow_redirects=False
-    )
+    response = requests.get(url, params=params, allow_redirects=False)
     if response.status_code > 399:
         return None
     posts = response.json().get('data', {}).get('children', [])
