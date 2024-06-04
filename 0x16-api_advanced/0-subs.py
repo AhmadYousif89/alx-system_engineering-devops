@@ -1,13 +1,16 @@
 #!/usr/bin/python3
-"""
-Query the Reddit API and returns the number of subscribers
-(not active users, total subscribers) for a given subreddit.
-"""
+
+"""This module contains number_of_subscribers functions"""
+
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """Return the number of subscribers for a given subreddit."""
+    """
+    Returns the number of subscribers (not active users, total subscribers)
+    for a given subreddit.
+    """
+
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
                AppleWebKit/537.36 (KHTML, like Gecko)\
