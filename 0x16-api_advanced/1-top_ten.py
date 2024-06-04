@@ -9,7 +9,7 @@ import requests
 
 def top_ten(subreddit):
     """Print the titles of the first 10 hot posts for a given subreddit."""
-    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json?limit=8".format(subreddit)
     response = requests.get(url, allow_redirects=False)
     if response.status_code > 399:
         print(None)
