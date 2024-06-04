@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Query the Reddit API and parses the title of all hot articles,
-and prints a sorted count of given keywords 
+and prints a sorted count of given keywords
 """
 import requests
 
@@ -23,8 +23,6 @@ def count_words(subreddit, word_list, hot_list=[], after=None):
         count_words(subreddit, word_list, hot_list, after)
     else:
         word_dict = {}
-        for word in word_list:
-            word_dict[word] = 0
         for title in hot_list:
             for word in word_list:
                 word_dict[word] += title.lower().split(' ').count(word.lower())
