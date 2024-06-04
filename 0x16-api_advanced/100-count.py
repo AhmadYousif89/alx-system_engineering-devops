@@ -6,30 +6,26 @@ and prints a sorted count of given keywords
 import requests
 
 
-def count_words(subreddit, word_list, word_dict={}, after=None):
-    """Count words in titles of hot articles"""
+def count_words(subreddit, word_list, hot_list=[], after=None):
+    """Return a list of titles of all hot articles for a given subreddit."""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    params = {'limit': 100, 'after': after}
+    params = {"limit": 100, "after": after}
     response = requests.get(url, params=params, allow_redirects=False)
-    if response.status_code != 200:
-        return
-    try:
-        children = response.json().get('data').get('children')
-        for child in children:
-            title = child.get('data').get('title').lower().split()
-            for word in word_list:
-                if word.lower() in title:
-                    if word in word_dict:
-                        word_dict[word] += 1
-                    else:
-                        word_dict[word] = 1
-        after = response.json().get('after')
-        if after:
-            return count_words(subreddit, word_list, word_dict, after)
-        sorted_dict = sorted(
-            word_dict.items(), key=lambda x: x[1], reverse=True
-        )
-        for k, v in sorted_dict:
+    if response.status_code > 399:
+        return None
+    posts = response.json().get('data', {}).get('children', [])
+    for post in posts:
+        title = post.get('data', {}).get('title', '')
+        hot_list.append(title)
+    after = response.json().get('data', {}).get('after', None)
+    if after:
+        return count_words(subreddit, word_list, hot_list, after)
+    word_dict = {}
+    for word in word_list:
+        word_dict[word] = 0
+    for title in hot_list:
+        for word in word_list:
+            word_dict[word] += title.lower().split(' ').count(word.lower())
+    for k, v in sorted(word_dict.items(), key=lambda w: (-w[1], w[0])):
+        if v > 0:
             print("{}: {}".format(k, v))
-    except Exception:
-        return
