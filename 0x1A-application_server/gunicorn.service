@@ -5,9 +5,10 @@ After=network.target
 
 [Service]
 User=ubuntu
+Group=ubuntu
 WorkingDirectory=/home/ubuntu/AirBnB_clone_v4
-Environment="PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/home/ubuntu/.local/bin:/home/ubuntu/.local/sbin:$PATH"
-ExecStart=/home/ubuntu/.local/bin/gunicorn -w 3 -b 0.0.0.0:5003 web_dynamic.2-hbnb:app --error-logfile /tmp/hbnb-error.log --access-logfile /tmp/hbnb-access.log
+ExecStart=/home/ubuntu/.local/bin/gunicorn --workers 3 --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
