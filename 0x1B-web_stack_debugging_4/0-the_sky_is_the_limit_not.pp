@@ -3,7 +3,6 @@
 exec { 'update_nginx_ulimit':
   command => 'sed -i "s/^ulimit=.*/ULIMIT=\"-n 256\"/Ig" /etc/default/nginx',
   path    => '/bin:/usr/bin:/usr/local/bin',
-  onlyif  => 'grep -i "ulimit=" /etc/default/nginx',
 }
 
 exec { 'restart_nginx_service':
