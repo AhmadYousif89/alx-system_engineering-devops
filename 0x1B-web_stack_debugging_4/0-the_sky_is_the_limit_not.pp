@@ -5,8 +5,7 @@ exec { 'update_nginx_ulimit':
   path    => '/bin:/usr/bin:/usr/local/bin',
 }
 
-exec { 'restart_nginx_service':
-  command => 'service nginx restart',
-  path    => '/bin:/usr/bin:/usr/local/bin',
-  require => Exec['update_nginx_ulimit'],
+exec { 'nginx-restart':
+  command => 'nginx restart',
+  path    => '/etc/init.d/',
 }
